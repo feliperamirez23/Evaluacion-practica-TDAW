@@ -1,0 +1,85 @@
+.App {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.left {
+  flex: auto;
+  background-color: #400000;
+  height: 10%;
+}
+.rechazarL{
+  color: rgb(255, 255, 255);
+  font-family: 'Parisienne', cursive;
+  font-size: 36px;
+}
+
+.middle {
+  flex: auto;
+  background-color: gainsboro;
+  height: 100%;
+}
+
+.perrosL{
+  color: rgb(0, 0, 0);
+  font-family: 'Parisienne', cursive;
+  font-size: 36px;
+}
+
+.right {
+  flex: auto;
+  background-color: #133A06;
+  height: 10%;
+}
+
+.aceptarL{
+  color: rgb(251, 251, 251);
+  font-family: 'Parisienne', cursive;
+  font-size: 36px;
+}
+
+.perron{
+  width: 250px;
+  height: 250px;
+  padding-top: 10px;
+}
+
+figcaption{
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: 0px;
+}
+
+.button{  
+  font-size: 30px;
+  padding: 10px 20px;
+  margin-right: 5px ;
+  width: 45%;
+  height: 70px;
+  color: white;
+  background-color: #400000;
+}
+
+.button2{
+  font-size: 30px;
+  padding: 10px 20px;
+  width:  48%;
+  height: 70px;
+  color: white;
+  background-color: #133A06;
+}
+
+.buttonL{
+  font-size: 30px;
+  color: white;
+  padding: 10px 20px;
+  background-color: #133A06;
+}
+
+.buttonR{
+  font-size: 30px;
+  color: white;
+  padding: 10px 20px;
+  background-color: #400000;
+}
