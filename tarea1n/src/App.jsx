@@ -73,8 +73,9 @@ function App() {
     nombre: "",
     imagen: "",
     descripcion: "",
-    
+    booleano: false,
   });
+
   const [isLoading, setLoading] = useLoadingMessage();
   const [rDog, setRDog] = useState ([]);
   const [aDog, setADog] = useState ([]);
@@ -142,14 +143,31 @@ function App() {
  const [expanded, setExpanded] = React.useState(false);
  const [expanded2, setExpanded2] = React.useState(false);
 
-const handleExpandClick = () => {
-  setExpanded(!expanded);
-};
+const handleExpandClick = (dog) => {
+  let update = aDog.map(item=>{
+    if (item==dog) {
+      console.log(item.booleano);
+      return{...item, booleano: !item.booleano}
+    }else{
+      return item
+    }
+   
+  });
+  setADog(update)
+}
 
-const handleExpandClick2 = () => {
-  setExpanded2(!expanded2);
-};
-
+const handleExpandClick2 = (dog) => {
+  let update = rDog.map(item=>{
+    if (item==dog) {
+      console.log(item.booleano);
+      return{...item, booleano: !item.booleano}
+    }else{
+      return item
+    }
+   
+  });
+  setRDog(update)
+}
 
   return (
 
@@ -167,7 +185,7 @@ const handleExpandClick2 = () => {
              <div className="perrosL"> <center>Perritos Candidatos</center>
              {isLoading && <center><p><CircularProgress/></p></center>} 
              <Grid item md={50} xs={50} sx={{ background: "gray"   }}>
-               <Card classname="card" style={cardStyle}> 
+               <Card className="card" style={cardStyle}> 
                  <CardContent className="cc">
                    <center>
                     <Tooltip title="Me gusta">
@@ -221,19 +239,19 @@ const handleExpandClick2 = () => {
                               </CardContent>
                               
                               
-                              <CardActions disableSpacing>
+                              <CardActions className="ca" disableSpacing>
         <Tooltip title="ver más">
         <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
+          expand={dog.booleano}
+          onClick={()=> handleExpandClick(dog)}
+          aria-expanded={dog.booleano}
           aria-label="Ver Más"
         >
-          <ExpandMoreIcon />
+          <ExpandMoreIcon className="expandicon"/>
         </ExpandMore>
         </Tooltip>
       </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
+      <Collapse in={dog.booleano} timeout="auto" unmountOnExit>
         <CardContent className="cc">
         <IconButton>
           <p className="descripcion2">{dog.descripcion}</p>
@@ -277,19 +295,19 @@ const handleExpandClick2 = () => {
                               
           
                               </CardContent>
-                              <CardActions disableSpacing>
+                              <CardActions className="ca" disableSpacing>
         <Tooltip title="ver más">
         <ExpandMore2
-          expand2={expanded2}
-          onClick={handleExpandClick2}
-          aria-expanded={expanded2}
+          expand2={dog.booleano}
+          onClick={()=>handleExpandClick2(dog)}
+          aria-expanded={dog.booleano}
           aria-label="Ver Más"
         >
-          <ExpandMoreIcon />
+          <ExpandMoreIcon className="expandicon"/>
         </ExpandMore2>
         </Tooltip>
       </CardActions>
-      <Collapse in={expanded2} timeout="auto" unmountOnExit>
+      <Collapse in={dog.booleano} timeout="auto" unmountOnExit>
         <CardContent className="cc">
         <IconButton>
           <p className="descripcion1">{dog.descripcion}</p>
