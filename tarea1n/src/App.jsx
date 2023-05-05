@@ -24,8 +24,6 @@ import {
   Tooltip,
 } from "@mui/material";
 
-
-
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -48,7 +46,6 @@ const ExpandMore2 = styled((props) => {
   }),
 }));
 
-
 function useLoadingMessage() {
   const [isLoading, setLoading] = useState(false);
 
@@ -65,10 +62,7 @@ function useLoadingMessage() {
   return [isLoading, setLoading];
 }
 
-
 function App() {
-  
-
   const [dog,setDog] = useState({
     nombre: "",
     imagen: "",
@@ -82,13 +76,11 @@ function App() {
   const [btnDis, setbtnDis] = useState(false);
   const lorem = new LoremIpsum();
 
-
   const cardStyle ={
     widht: '250px',
     height: 'flex',
     margin: '0px',
   };
-
 
   const getDog=()=> {
     setbtnDis(true);
@@ -111,13 +103,10 @@ function App() {
     setTimeout(()=>{
       setbtnDis(false);
     },2000);
-
-
   };
 
   useEffect(()=>{
     getDog();
-
   }, []);
 
   const rechazadoDog=(dog)=>{
@@ -139,9 +128,6 @@ function App() {
     setADog(aDog.filter((d)=>d!==dog));
     setRDog([...rDog,dog]);
   };
-
- const [expanded, setExpanded] = React.useState(false);
- const [expanded2, setExpanded2] = React.useState(false);
 
 const handleExpandClick = (dog) => {
   let update = aDog.map(item=>{
@@ -169,171 +155,140 @@ const handleExpandClick2 = (dog) => {
   setRDog(update)
 }
 
-  return (
-
-    <Box className="box">
-      <Grid
+return (
+  <Box className="box">
+    <Grid
         container
         direction="row"
         justifyContent="center"
         alignItems="flex-start"
         spacing={1}
       >
-        <div className="App">
-          <div className="left">
-            {
-             <div className="perrosL"> <center>Perritos Candidatos</center>
-             {isLoading && <center><p><CircularProgress/></p></center>} 
-             <Grid item md={50} xs={50} sx={{ background: "gray"   }}>
-               <Card className="card" style={cardStyle}> 
-                 <CardContent className="cc">
-                   <center>
+    <div className="App">
+      <div className="left">
+        {
+          <div className="perrosL"> <center>Perritos Candidatos</center>
+            {isLoading && <center><p><CircularProgress/></p></center>} 
+            <Grid item md={50} xs={50} sx={{ background: "gray"}}>
+              <Card className="card" style={cardStyle}> 
+               <CardContent className="cc">
+                  <center>
                     <Tooltip title="Me gusta">
-                    <button disabled={btnDis} onClick={()=> aceptadoDog(dog)} className='button2'><ThumbUpOffAltIcon></ThumbUpOffAltIcon></button>
-                   </Tooltip>
-                   <Tooltip title="No me gusta">
-                   <button disabled={btnDis} onClick={()=> rechazadoDog(dog)} className='button'><ThumbDownOffAltIcon></ThumbDownOffAltIcon></button>
-                   
-                   </Tooltip>
-                   </center>
-                   <center>
-                     <figure>
-                       <img src={dog.imagen} className="perron" />
-                       <figcaption> {dog.nombre} </figcaption>
-                       
-                       <p className="descripcion">{dog.descripcion}</p>
-                     </figure>
-
-                   
-         </center>
-         </CardContent>
-
-
-
-       </Card>
-       </Grid>
-
-       </div> 
-            }
-          </div>
-          <div className="middle" style={{overflowY: "auto"}}>
-            {
-                <div className= "aceptarL"> <center>¡Match Perruno!</center> 
-                <Grid item md={50} xs={50} sx={{ background: "white" }}>
-                      <List className="List" key={"a"}>
-                        {aDog.slice().reverse().map((dog)=> (
-                          <ListItem className='lista2'>
-                            <Card className="card" style={cardStyle}> 
-                          
-                              <CardContent className="cc">
-                              <center>
-                              <figure>
-                              <img src={dog.imagen} className="perron" />
-                              <figcaption> {dog.nombre} </figcaption>
-                              </figure>
-                              <Tooltip title="Ya no me gusta">
-                              <button onClick={()=> arrepentidoA(dog)} className='buttonR'><ThumbDownOffAltIcon></ThumbDownOffAltIcon></button>
-                              </Tooltip>
-                              </center>
-
-                              </CardContent>
-                              
-                              
-                              <CardActions className="ca" disableSpacing>
-        <Tooltip title="ver más">
-        <ExpandMore
-          expand={dog.booleano}
-          onClick={()=> handleExpandClick(dog)}
-          aria-expanded={dog.booleano}
-          aria-label="Ver Más"
-        >
-          <ExpandMoreIcon className="expandicon"/>
-        </ExpandMore>
-        </Tooltip>
-      </CardActions>
-      <Collapse in={dog.booleano} timeout="auto" unmountOnExit>
-        <CardContent className="cc">
-        <IconButton>
-          <p className="descripcion2">{dog.descripcion}</p>
-          </IconButton>
-        </CardContent>
-      </Collapse>
-                              </Card>
-                          </ListItem>
-                        ))}
-                      </List>
-
-                </Grid>
-            
-          </div> 
-              
+                      <button disabled={btnDis} onClick={()=> aceptadoDog(dog)} className='button2'><ThumbUpOffAltIcon></ThumbUpOffAltIcon></button>
+                    </Tooltip>
+                    <Tooltip title="No me gusta">
+                      <button disabled={btnDis} onClick={()=> rechazadoDog(dog)} className='button'><ThumbDownOffAltIcon></ThumbDownOffAltIcon></button>
+                    </Tooltip>
+                  </center>
+                  <center>
+                    <figure>
+                      <img src={dog.imagen} className="perron" />
+                      <figcaption> {dog.nombre} </figcaption>
+                      <p className="descripcion">{dog.descripcion}</p>
+                    </figure> 
+                  </center>
+                </CardContent>
+                </Card>
+            </Grid>
+         </div> 
         }
       </div>
+        <div className="middle" style={{overflowY: "auto"}}>
+          {
+            <div className= "aceptarL"> <center>¡Match Perruno!</center> 
+              <Grid item md={50} xs={50} sx={{ background: "white" }}>
+                <List className="List" key={"a"}>
+                  {aDog.slice().reverse().map((dog)=> (
+                    <ListItem className='lista2'>
+                      <Card className="card" style={cardStyle}> 
+                        <CardContent className="cc">
+                          <center>
+                          <figure>
+                            <img src={dog.imagen} className="perron" />
+                            <figcaption> {dog.nombre} </figcaption>
+                          </figure>
+                          <Tooltip title="Ya no me gusta">
+                            <button onClick={()=> arrepentidoA(dog)} className='buttonR'><ThumbDownOffAltIcon></ThumbDownOffAltIcon></button>
+                          </Tooltip>
+                          </center>
+                        </CardContent>
+                        <CardActions className="ca" disableSpacing>
+                          <Tooltip title="ver más">
+                            <ExpandMore
+                              expand={dog.booleano}
+                              onClick={()=> handleExpandClick(dog)}
+                              aria-expanded={dog.booleano}
+                              aria-label="Ver Más"
+                            >
+                          <ExpandMoreIcon className="expandicon"/>
+                            </ExpandMore>
+                          </Tooltip>
+                        </CardActions>
+                        <Collapse in={dog.booleano} timeout="auto" unmountOnExit>
+                          <CardContent className="cc">
+                            <IconButton>
+                              <p className="descripcion2">{dog.descripcion}</p>
+                            </IconButton>
+                          </CardContent>
+                        </Collapse>
+                      </Card>
+                    </ListItem>
+                  ))}
+                </List>
+              </Grid>
+            </div> 
+          }
+        </div>
       <div className="right" style={{ overflowY: "auto"}}>
         {
-
-           <div className="rechazarL"><center>Rechazados por ti </center> 
-                <Grid item md={50} xs={50} sx={{ background: "white" }}>
-                    
-                      <List className= "List2" key={"b"}>
-                        {rDog.slice().reverse().map((dog) => (
-                          <ListItem className='lista1'>
-                            <Card className="card" style={cardStyle}> 
-                         
-                              <CardContent className="cc">
-                              <center>
-                              <figure>
-                              <img src={dog.imagen} className="perron" />
-                              <figcaption> {dog.nombre} </figcaption>
-                              
-                              </figure>
-                
-                              <Tooltip title="Ahora me gusta">
-                              <button onClick={()=> arrepentidoR(dog)} className='buttonL'><ThumbUpOffAltIcon></ThumbUpOffAltIcon></button>
-                              </Tooltip>
-                              </center>
-                              
-          
-                              </CardContent>
-                              <CardActions className="ca" disableSpacing>
-        <Tooltip title="ver más">
-        <ExpandMore2
-          expand2={dog.booleano}
-          onClick={()=>handleExpandClick2(dog)}
-          aria-expanded={dog.booleano}
-          aria-label="Ver Más"
-        >
-          <ExpandMoreIcon className="expandicon"/>
-        </ExpandMore2>
-        </Tooltip>
-      </CardActions>
-      <Collapse in={dog.booleano} timeout="auto" unmountOnExit>
-        <CardContent className="cc">
-        <IconButton>
-          <p className="descripcion1">{dog.descripcion}</p>
-          </IconButton>
-        </CardContent>
-      </Collapse>
-        </Card>
-       </ListItem>
-                        ))}
-                      </List>
-                    
-    
-                </Grid>
-              </div>
-        
+          <div className="rechazarL"><center>Rechazados por ti </center> 
+            <Grid item md={50} xs={50} sx={{ background: "white" }}>
+              <List className= "List2" key={"b"}>
+                {rDog.slice().reverse().map((dog) => (
+                  <ListItem className='lista1'>
+                    <Card className="card" style={cardStyle}> 
+                      <CardContent className="cc">
+                        <center>
+                          <figure>
+                            <img src={dog.imagen} className="perron" />
+                            <figcaption> {dog.nombre} </figcaption>
+                           </figure>
+                          <Tooltip title="Ahora me gusta">
+                            <button onClick={()=> arrepentidoR(dog)} className='buttonL'><ThumbUpOffAltIcon></ThumbUpOffAltIcon></button>
+                          </Tooltip>
+                        </center>
+                      </CardContent>
+                      <CardActions className="ca" disableSpacing>
+                        <Tooltip title="ver más">
+                          <ExpandMore2
+                            expand2={dog.booleano}
+                            onClick={()=>handleExpandClick2(dog)}
+                            aria-expanded={dog.booleano}
+                            aria-label="Ver Más"
+                          >
+                          <ExpandMoreIcon className="expandicon"/>
+                          </ExpandMore2>
+                        </Tooltip>
+                      </CardActions>
+                      <Collapse in={dog.booleano} timeout="auto" unmountOnExit>
+                        <CardContent className="cc">
+                          <IconButton>
+                            <p className="descripcion1">{dog.descripcion}</p>
+                          </IconButton>
+                        </CardContent>
+                      </Collapse>
+                    </Card>
+                  </ListItem>
+                ))}
+              </List>
+            </Grid>
+          </div>
         }
       </div>
-  </div>
+    </div>
     </Grid>
-    </Box>
+  </Box>
   );
 }
 
-
-
-
-
 export default App
-
