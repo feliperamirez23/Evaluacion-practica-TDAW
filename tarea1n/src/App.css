@@ -5,10 +5,11 @@
 }
 
 .left {
-  flex: auto;
-  background-color: #400000;
-  height: 10%;
+  background-color: #E0E0E0;
+  max-height: 100vh;
+  max-width: 50vh;
 }
+
 .rechazarL{
   color: rgb(255, 255, 255);
   font-family: 'Parisienne', cursive;
@@ -16,9 +17,9 @@
 }
 
 .middle {
-  flex: auto;
-  background-color: gainsboro;
-  height: 100%;
+  max-height: 100vh;
+  max-width: 40vh;
+  background-color: #E0E0E0;
 }
 
 .perrosL{
@@ -28,9 +29,9 @@
 }
 
 .right {
-  flex: auto;
-  background-color: #133A06;
-  height: 10%;
+  background-color: #E0E0E0;
+  max-height: 100vh;
+  max-width: 40vh;
 }
 
 .aceptarL{
