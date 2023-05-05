@@ -1,42 +1,46 @@
 .App {
+  background-color: #B1CBCD;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   height: 100vh;
+  justify-content: center;
 }
 
 .left {
-  background-color: #E0E0E0;
+  background-color: #B1CBCD;
   max-height: 100vh;
   max-width: 50vh;
+  flex-basis: 100%;
 }
 
 .rechazarL{
-  color: rgb(255, 255, 255);
-  font-family: 'Parisienne', cursive;
+  color: rgb(0, 0, 0);
+  font-family: 'Gotham Rounded';
   font-size: 36px;
 }
 
 .middle {
   max-height: 100vh;
   max-width: 40vh;
-  background-color: #E0E0E0;
+  background-color: #B1CBCD;
 }
 
 .perrosL{
   color: rgb(0, 0, 0);
-  font-family: 'Parisienne', cursive;
+  font-family: 'Gotham Rounded';
   font-size: 36px;
 }
 
 .right {
-  background-color: #E0E0E0;
+  background-color: #B1CBCD;
   max-height: 100vh;
   max-width: 40vh;
 }
 
 .aceptarL{
-  color: rgb(251, 251, 251);
-  font-family: 'Parisienne', cursive;
+  color: rgb(0, 0, 0);
+  font-family: 'Gotham Rounded ';
   font-size: 36px;
 }
 
@@ -53,34 +57,82 @@ figcaption{
 }
 
 .button{  
-  font-size: 30px;
   padding: 10px 20px;
-  margin-right: 5px ;
-  width: 45%;
+  width:  70px;
   height: 70px;
   color: white;
-  background-color: #400000;
+  background-color: #E8A8A8;
 }
 
 .button2{
-  font-size: 30px;
   padding: 10px 20px;
-  width:  48%;
+  margin-right: 5px ;
+  width:  70px;
   height: 70px;
   color: white;
-  background-color: #133A06;
+  background-color: #85D88C;
 }
 
 .buttonL{
-  font-size: 30px;
   color: white;
   padding: 10px 20px;
-  background-color: #133A06;
+  background-color: #85D88C;
 }
 
 .buttonR{
-  font-size: 30px;
   color: white;
   padding: 10px 20px;
-  background-color: #400000;
+  background-color: #E8A8A8;
+}
+
+.descripcion{
+  font-size: 12px;
+}
+
+.descripcion1{
+  font-size: 12px;
+}
+
+.descripcion2{
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .left{
+    flex-basis: 50%;
+  }
+
+  .middle{
+    flex-basis: 50%;
+  }
+
+  .right{
+    flex-basis: 50%;
+  }
+}
+.box{
+ background-color: #B1CBCD;
+}
+.grid{
+  background-color: #A3C0B3;
+}
+.card{
+  background-color: #A3C0B3;
+}
+.cc{
+  background-color: #A3C0B3;
+}
+
+.lista1{
+  background-color: #B1CBCD;
+}
+
+.lista2{
+  background-color: #B1CBCD;
+}
+.List{
+  background-color: #B1CBCD;
+}
+.List2{
+  background-color: #B1CBCD;
 }

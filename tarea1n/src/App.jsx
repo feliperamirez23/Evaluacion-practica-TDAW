@@ -153,7 +153,7 @@ const handleExpandClick2 = () => {
 
   return (
 
-    <Box>
+    <Box className="box">
       <Grid
         container
         direction="row"
@@ -167,8 +167,8 @@ const handleExpandClick2 = () => {
              <div className="perrosL"> <center>Perritos Candidatos</center>
              {isLoading && <center><p><CircularProgress/></p></center>} 
              <Grid item md={50} xs={50} sx={{ background: "gray"   }}>
-               <Card style={cardStyle}> 
-                 <CardContent>
+               <Card classname="card" style={cardStyle}> 
+                 <CardContent className="cc">
                    <center>
                     <Tooltip title="Me gusta">
                     <button disabled={btnDis} onClick={()=> aceptadoDog(dog)} className='button2'><ThumbUpOffAltIcon></ThumbUpOffAltIcon></button>
@@ -202,12 +202,12 @@ const handleExpandClick2 = () => {
             {
                 <div className= "aceptarL"> <center>¡Match Perruno!</center> 
                 <Grid item md={50} xs={50} sx={{ background: "white" }}>
-                      <List>
+                      <List className="List" key={"a"}>
                         {aDog.slice().reverse().map((dog)=> (
                           <ListItem className='lista2'>
-                            <Card style={cardStyle}> 
+                            <Card className="card" style={cardStyle}> 
                           
-                              <CardContent>
+                              <CardContent className="cc">
                               <center>
                               <figure>
                               <img src={dog.imagen} className="perron" />
@@ -222,6 +222,7 @@ const handleExpandClick2 = () => {
                               
                               
                               <CardActions disableSpacing>
+        <Tooltip title="ver más">
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
@@ -230,9 +231,10 @@ const handleExpandClick2 = () => {
         >
           <ExpandMoreIcon />
         </ExpandMore>
+        </Tooltip>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
+        <CardContent className="cc">
         <IconButton>
           <p className="descripcion2">{dog.descripcion}</p>
           </IconButton>
@@ -255,12 +257,12 @@ const handleExpandClick2 = () => {
            <div className="rechazarL"><center>Rechazados por ti </center> 
                 <Grid item md={50} xs={50} sx={{ background: "white" }}>
                     
-                      <List>
+                      <List className= "List2" key={"b"}>
                         {rDog.slice().reverse().map((dog) => (
                           <ListItem className='lista1'>
-                            <Card style={cardStyle}> 
+                            <Card className="card" style={cardStyle}> 
                          
-                              <CardContent>
+                              <CardContent className="cc">
                               <center>
                               <figure>
                               <img src={dog.imagen} className="perron" />
@@ -276,6 +278,7 @@ const handleExpandClick2 = () => {
           
                               </CardContent>
                               <CardActions disableSpacing>
+        <Tooltip title="ver más">
         <ExpandMore2
           expand2={expanded2}
           onClick={handleExpandClick2}
@@ -284,20 +287,17 @@ const handleExpandClick2 = () => {
         >
           <ExpandMoreIcon />
         </ExpandMore2>
+        </Tooltip>
       </CardActions>
       <Collapse in={expanded2} timeout="auto" unmountOnExit>
-        <CardContent>
+        <CardContent className="cc">
         <IconButton>
           <p className="descripcion1">{dog.descripcion}</p>
           </IconButton>
         </CardContent>
       </Collapse>
-
-
-
-                              </Card>
-                        
-                          </ListItem>
+        </Card>
+       </ListItem>
                         ))}
                       </List>
                     
