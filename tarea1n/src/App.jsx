@@ -63,11 +63,25 @@ function useLoadingMessage() {
 }
 
 function App() {
+  useEffect(() => {
+    // Realizar una llamada GET al endpoint /perfiles en tu backend
+    axios.get('http://localhost:5000/Perro')
+      .then(response => {
+        setDogProfiles(response.data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }, []);
+  
   const [dog,setDog] = useState({
     nombre: "",
     imagen: "",
     descripcion: "",
     booleano: false,
+
+    
+    
   });
 
   const [isLoading, setLoading] = useLoadingMessage();
